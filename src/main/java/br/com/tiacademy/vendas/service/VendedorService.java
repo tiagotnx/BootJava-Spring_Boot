@@ -20,4 +20,8 @@ public class VendedorService {
     public Vendedor porID(Long id) {
         return vendedorRepository.findById(id).orElse(null);
     }
+
+    public Vendedor criar(Vendedor vendedor) {
+        return vendedorRepository.save(vendedor);
+    }
 }
