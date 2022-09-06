@@ -30,7 +30,7 @@ public class VendedorService {
         var recuperado = porID(id);
 
         if (Objects.isNull(recuperado)) {
-
+            throw new RuntimeException("Não foi encontrado!");
         }
 
         recuperado.setNome(editado.getNome());
