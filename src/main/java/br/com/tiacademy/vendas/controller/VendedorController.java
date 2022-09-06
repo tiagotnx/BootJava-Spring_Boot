@@ -43,4 +43,10 @@ public class VendedorController {
     public ResponseEntity<Vendedor> editar(@PathVariable("id") Long id, @RequestBody Vendedor vendedor) {
         return ResponseEntity.ok(vendedorService.editar(id, vendedor));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
+        vendedorService.excluir(id);
+        return ResponseEntity.ok().build();
+    }
 }

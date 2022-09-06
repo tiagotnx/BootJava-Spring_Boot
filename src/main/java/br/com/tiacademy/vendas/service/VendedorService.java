@@ -36,4 +36,8 @@ public class VendedorService {
         recuperado.setNome(editado.getNome());
         return vendedorRepository.save(recuperado);
     }
+
+    public void excluir(Long id) {
+        vendedorRepository.deleteById(id);
+    }
 }
