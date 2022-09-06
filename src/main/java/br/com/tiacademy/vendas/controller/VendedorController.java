@@ -24,7 +24,6 @@ public class VendedorController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Vendedor> especifico(@PathVariable("id") Long id) {
-
         var resultado = vendedorService.porID(id);
 
         if (Objects.isNull(resultado)) {
@@ -37,9 +36,11 @@ public class VendedorController {
     @PostMapping
     public ResponseEntity<Vendedor> criar(@RequestBody Vendedor vendedor) {
         var salvo = vendedorService.criar(vendedor);
-
         return ResponseEntity.ok(salvo);
     }
 
-
+    @PutMapping("/{id}")
+    public ResponseEntity<Vendedor> editar(@PathVariable("id") Long id, @RequestBody Vendedor vendedor) {
+        return ResponseEntity.ok(vendedorService.editar(id, vendedor));
+    }
 }

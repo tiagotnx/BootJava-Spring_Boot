@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class VendedorService {
@@ -23,5 +24,16 @@ public class VendedorService {
 
     public Vendedor criar(Vendedor vendedor) {
         return vendedorRepository.save(vendedor);
+    }
+
+    public Vendedor editar(Long id, Vendedor editado) {
+        var recuperado = porID(id);
+
+        if (Objects.isNull(recuperado)) {
+
+        }
+
+        recuperado.setNome(editado.getNome());
+        return vendedorRepository.save(recuperado);
     }
 }
