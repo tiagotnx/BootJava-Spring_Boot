@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+>
+    <changeSet id="1" author="tiago">
+        <preConditions onFail="MARK_RAN" onFailMessage="Já existe tabela VENDEDOR">
+            <not>
+                <tableExists tableName="VENDEDOR"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="VENDEDOR">
+            <column name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_VENDEDOR"/>
+            </column>
+            <column name="NOME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="2" author="tiago">
+        <preConditions onFail="MARK_RAN" onFailMessage="Já existe tabela CLIENTE">
+            <not>
+                <tableExists tableName="CLIENTE"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="CLIENTE">
+            <column name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CLIENTE"/>
+            </column>
+            <column name="NOME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>
